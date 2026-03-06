@@ -1,0 +1,83 @@
+:root {
+  --bg: #050510;
+  --accent: #7b61ff;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+.main-layout {
+  background: radial-gradient(circle at top, #151535 0%, #050510 100%);
+  min-height: 100vh;
+  color: white;
+  padding: 20px 5%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar button {
+  background: none;
+  border: none;
+  color: white;
+  margin-left: 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.glass-container {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border-radius: 40px;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.hero-img {
+  width: 100%;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.grid-cosmos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card-cosmos img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: zoom-in;
+}
+
+.btn-fav {
+  background: var(--accent);
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.filters {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.filters button {
+  background: var(--glass);
+  color: white;
+  border: 1px solid var(--accent);
+  margin: 5px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}

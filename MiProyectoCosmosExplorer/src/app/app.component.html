@@ -1,0 +1,32 @@
+<div style="background: #0b0d17; color: white; min-height: 100vh; padding: 20px; font-family: sans-serif; text-align: center;">
+  
+  <h1 style="color: #4cc9f0; margin-bottom: 20px;">🛰️ NASA Explorer</h1>
+
+  <nav style="margin-bottom: 30px; display: flex; gap: 10px; justify-content: center;">
+    <button (click)="view = 'home'" style="padding: 12px 20px; cursor: pointer; border-radius: 8px; border: none; background: #3f37c9; color: white;">INICIO</button>
+    <button (click)="loadMars('curiosity')" style="padding: 12px 20px; cursor: pointer; border-radius: 8px; border: none; background: #4cc9f0; color: white;">MARTE: CURIOSITY</button>
+    <button (click)="loadMars('opportunity')" style="padding: 12px 20px; cursor: pointer; border-radius: 8px; border: none; background: #4cc9f0; color: white;">MARTE: OPPORTUNITY</button>
+  </nav>
+
+  <hr style="border: 0.5px solid #333; margin: 20px 0;">
+
+  <div *ngIf="view === 'home' && apod">
+    <h2>Imagen del Día: {{ apod.title }}</h2>
+    <img [src]="apod.url" style="width: 100%; max-width: 600px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <p style="margin-top: 15px; padding: 0 10%; line-height: 1.6;">{{ apod.explanation }}</p>
+  </div>
+
+  <div *ngIf="view === 'gallery'">
+    <h2 *ngIf="!cargando">Fotos de Marte</h2>
+    <h2 *ngIf="cargando" style="color: #ff9e00;"> Conectando con Marte...</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+      <div *ngFor="let photo of marsPhotos" style="background: #1a1c2c; padding: 10px; border-radius: 12px;">
+        <img [src]="photo.img_src" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px;">
+        <p style="font-size: 12px; margin-top: 10px;">Fecha: {{ photo.earth_date }}</p>
+        <p style="font-size: 10px; color: #888;">Cámara: {{ photo.camera.name }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
